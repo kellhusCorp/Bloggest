@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggest.Common", "Services
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Posts.Infrastructure", "Services\Posts\Posts.Infrastructure\Posts.Infrastructure.csproj", "{07CBFA92-F1EF-48CA-8477-9183255AA7EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Posts.Application", "Services\Posts\Posts.Application\Posts.Application.csproj", "{31FC061C-929C-4244-BC2D-247FC78A6992}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,7 @@ Global
 		{3CD89BD1-9B43-4665-A532-D3534E5B1177} = {F18B472E-B267-4A0C-9937-08DB1F21D9EA}
 		{07CBFA92-F1EF-48CA-8477-9183255AA7EC} = {E0538879-8806-4FCA-9E80-0A96258CB25D}
 		{F18B472E-B267-4A0C-9937-08DB1F21D9EA} = {5882B96F-5157-41C3-9826-5A0539CEFF00}
+		{31FC061C-929C-4244-BC2D-247FC78A6992} = {E0538879-8806-4FCA-9E80-0A96258CB25D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B0C860C7-951A-4608-9042-ABFF7F0D1D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -55,5 +58,9 @@ Global
 		{07CBFA92-F1EF-48CA-8477-9183255AA7EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07CBFA92-F1EF-48CA-8477-9183255AA7EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07CBFA92-F1EF-48CA-8477-9183255AA7EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31FC061C-929C-4244-BC2D-247FC78A6992}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31FC061C-929C-4244-BC2D-247FC78A6992}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31FC061C-929C-4244-BC2D-247FC78A6992}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31FC061C-929C-4244-BC2D-247FC78A6992}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

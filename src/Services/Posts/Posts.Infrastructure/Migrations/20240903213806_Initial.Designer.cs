@@ -12,7 +12,7 @@ using Posts.Infrastructure.Contexts;
 namespace Posts.Infrastructure.Migrations
 {
     [DbContext(typeof(PostsContext))]
-    [Migration("20240903203634_Initial")]
+    [Migration("20240903213806_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -32,7 +32,6 @@ namespace Posts.Infrastructure.Migrations
                         .HasColumnType("uuid");
 
                     b.Property<string>("AuthorId")
-                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Content")
@@ -50,10 +49,10 @@ namespace Posts.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<DateTimeOffset>("PublishedAt")
+                    b.Property<DateTimeOffset?>("PublishedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<DateTimeOffset>("UpdatedAt")
+                    b.Property<DateTimeOffset?>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");

@@ -20,9 +20,9 @@ namespace Posts.Infrastructure.Migrations
                     Link = table.Column<string>(type: "text", nullable: false),
                     Content = table.Column<string>(type: "text", nullable: false),
                     IsDraft = table.Column<bool>(type: "boolean", nullable: false),
-                    PublishedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: false),
-                    AuthorId = table.Column<string>(type: "text", nullable: false)
+                    PublishedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    UpdatedAt = table.Column<DateTimeOffset>(type: "timestamp with time zone", nullable: true),
+                    AuthorId = table.Column<string>(type: "text", nullable: true)
                 },
                 constraints: table =>
                 {
