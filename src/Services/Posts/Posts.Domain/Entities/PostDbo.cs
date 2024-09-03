@@ -14,11 +14,11 @@ public sealed class PostDbo : IBaseEntityDbo
 
     public bool IsDraft { get; set; }
     
-    public DateTimeOffset PublishedAt { get; set; }
+    public DateTimeOffset? PublishedAt { get; set; }
     
-    public DateTimeOffset UpdatedAt { get; set; }
+    public DateTimeOffset? UpdatedAt { get; set; }
     
-    public string AuthorId { get; set; } = null!;
+    public string? AuthorId { get; set; } = null!;
 
     public ICollection<TagAssignmentDbo> TagAssignments {get; set;} = [];
 }
