@@ -19,12 +19,9 @@ public class Program
         builder.Services.AddApplicationServices();
 
         var app = builder.Build();
-
-        if (app.Environment.IsDevelopment())
-        {
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
+        
+        app.UseSwagger();
+        app.UseSwaggerUI();
 
         app.MapControllers();
         app.UseAuthorization();
