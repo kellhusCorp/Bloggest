@@ -15,4 +15,10 @@ public class PostsContext : DbContext
     public DbSet<TagDbo> Tags { get; set; }
     
     public DbSet<TagAssignmentDbo> TagAssignments { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        modelBuilder.ApplyConfigurationsFromAssembly(typeof(PostsContext).Assembly);
+    }
 }

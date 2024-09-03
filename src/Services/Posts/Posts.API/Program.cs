@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using Posts.Infrastructure.Contexts;
+
 namespace Posts.API;
 
 public class Program
@@ -6,8 +9,8 @@ public class Program
     {
         var builder = WebApplication.CreateBuilder(args);
         
+        builder.Services.AddDbContext<PostsContext>(options => options.UseNpgsql(builder.Configuration.GetConnectionString("Default")));
         builder.Services.AddAuthorization();
-
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
