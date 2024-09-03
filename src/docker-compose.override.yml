@@ -1,0 +1,18 @@
+version: '3.4'
+services:
+  postsdb:
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - ${LOCAL_POSTGRES_VOLUME}:/var/lib/postgresql/data
+  
+  posts-api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__Default=${POSTS_DB_CONNECTION_STRING}
+      - Kestrel__Endpoints__Http__Url=http://+:80
+    ports:
+      - "5000:80"

@@ -1,0 +1,19 @@
+version: '3.4'
+services:
+  postsdb:
+    image: postgres:14.9
+    networks:
+        - bloggest-network
+
+  posts-api:
+    image: kellhus.bloggest.posts.api:latest
+    build:
+        context: .
+        dockerfile: Services/Posts/Posts.Api/Dockerfile
+    depends_on:
+        - postsdb
+    networks:
+        - bloggest-network
+networks:
+  bloggest-network:
+    driver: bridge
