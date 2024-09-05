@@ -21,4 +21,10 @@ public class PostsController : ControllerBase
         var posts = await _postsService.GetPosts(paginationOptions);
         return Ok(posts);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Create()
+    {
+        throw new NotImplementedException();
+    }
 }
