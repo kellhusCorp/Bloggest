@@ -36,6 +36,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bus", "Bus", "{7EC27944-639
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggest.Components.Bus", "Components\Bloggest.Components.Bus\Bloggest.Components.Bus.csproj", "{B1F1DE4E-35B1-41D7-8912-74DF99779E03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bloggest.Components.Tests", "Components\Bloggest.Components.Tests\Bloggest.Components.Tests.csproj", "{16FA98BF-B84D-482A-B317-4069A8B74E05}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,7 @@ Global
 		{BB17CD7C-065C-460B-A9CF-AD4742D17AB1} = {B8FA2E4A-72F9-4408-8EB5-180734B6301D}
 		{7EC27944-639C-416A-AA7E-811CD17D1018} = {BB17CD7C-065C-460B-A9CF-AD4742D17AB1}
 		{B1F1DE4E-35B1-41D7-8912-74DF99779E03} = {7EC27944-639C-416A-AA7E-811CD17D1018}
+		{16FA98BF-B84D-482A-B317-4069A8B74E05} = {7EC27944-639C-416A-AA7E-811CD17D1018}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{B0C860C7-951A-4608-9042-ABFF7F0D1D45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -81,5 +84,9 @@ Global
 		{B1F1DE4E-35B1-41D7-8912-74DF99779E03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1F1DE4E-35B1-41D7-8912-74DF99779E03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1F1DE4E-35B1-41D7-8912-74DF99779E03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16FA98BF-B84D-482A-B317-4069A8B74E05}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FA98BF-B84D-482A-B317-4069A8B74E05}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FA98BF-B84D-482A-B317-4069A8B74E05}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FA98BF-B84D-482A-B317-4069A8B74E05}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
