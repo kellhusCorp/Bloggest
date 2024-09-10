@@ -2,7 +2,7 @@
 
 namespace Bloggest.Components.Bus.Interfaces;
 
-public interface IEventBus
+public interface IEventBus : IDisposable
 {
     void Publish(IntegrationEvent @event);
 
