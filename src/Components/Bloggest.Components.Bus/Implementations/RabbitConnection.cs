@@ -20,7 +20,9 @@ public class RabbitConnection : IRabbitConnection
     private readonly Policy _policy;
 
     public RabbitConnection(
-        IConnectionFactory connectionFactory, ILogger<RabbitConnection> logger, Policy? retryPolicy = null, int retries = 3)
+        IConnectionFactory connectionFactory,
+        ILogger<RabbitConnection> logger,
+        Policy? retryPolicy = null, int retries = 3)
     {
         _connectionFactory = connectionFactory;
         _logger = logger;
