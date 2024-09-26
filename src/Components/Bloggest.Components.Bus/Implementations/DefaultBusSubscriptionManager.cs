@@ -1,5 +1,5 @@
-using Bloggest.Components.Bus.Interfaces;
-using Bloggest.Components.Bus.Types;
+using Bloggest.Components.Bus.Contracts.Interfaces;
+using Bloggest.Components.Bus.Contracts.Types;
 
 namespace Bloggest.Components.Bus.Implementations;
 

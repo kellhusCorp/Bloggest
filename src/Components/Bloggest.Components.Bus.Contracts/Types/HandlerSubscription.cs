@@ -1,4 +1,4 @@
-﻿namespace Bloggest.Components.Bus.Types;
+﻿namespace Bloggest.Components.Bus.Contracts.Types;
 
 public class HandlerSubscription
 {

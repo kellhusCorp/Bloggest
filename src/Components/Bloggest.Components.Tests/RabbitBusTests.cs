@@ -1,5 +1,5 @@
-﻿using Bloggest.Components.Bus.Implementations;
-using Bloggest.Components.Bus.Interfaces;
+﻿using Bloggest.Components.Bus.Contracts.Interfaces;
+using Bloggest.Components.Bus.Implementations;
 using Bloggest.Components.Tests.Types;
 using Microsoft.Extensions.Logging;
 using Moq;

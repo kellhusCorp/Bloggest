@@ -1,4 +1,4 @@
-﻿using Bloggest.Components.Bus.Interfaces;
+﻿using Bloggest.Components.Bus.Contracts.Interfaces;
 
 namespace Bloggest.Components.Tests.Types;
 

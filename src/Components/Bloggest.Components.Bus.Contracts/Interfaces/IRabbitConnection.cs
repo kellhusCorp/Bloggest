@@ -1,6 +1,6 @@
 ﻿using RabbitMQ.Client;
 
-namespace Bloggest.Components.Bus.Interfaces;
+namespace Bloggest.Components.Bus.Contracts.Interfaces;
 
 public interface IRabbitConnection : IDisposable
 {

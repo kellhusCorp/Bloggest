@@ -8,6 +8,12 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+      <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Components\Bloggest.Components.Bus.Contracts\Bloggest.Components.Bus.Contracts.csproj" />
+      <ProjectReference Include="..\..\Components\Bloggest.Components.Bus\Bloggest.Components.Bus.csproj" />
     </ItemGroup>
 
 </Project>
