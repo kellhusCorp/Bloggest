@@ -15,9 +15,8 @@ public class EFIntegrationEventContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
-
         modelBuilder.Entity<IntegrationEventEntry>(ConfigureIntegrationEventLogEntry);
+        base.OnModelCreating(modelBuilder);
     }
     
     void ConfigureIntegrationEventLogEntry(EntityTypeBuilder<IntegrationEventEntry> builder)

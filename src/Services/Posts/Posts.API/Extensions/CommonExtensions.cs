@@ -14,6 +14,7 @@ public static class CommonExtensions
             options.UseNpgsql(configuration.GetConnectionString("Default"), builder =>
             {
                 builder.MigrationsHistoryTable("__IntegrationEventMigrationsHistory");
+                builder.MigrationsAssembly(typeof(PostsContext).Assembly.FullName);
             });
         });
     }

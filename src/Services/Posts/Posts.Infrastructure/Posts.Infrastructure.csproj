@@ -21,4 +21,8 @@
       <ProjectReference Include="..\Posts.Domain\Posts.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Migrations\IntegrationEventContextMigrations\" />
+    </ItemGroup>
+
 </Project>
