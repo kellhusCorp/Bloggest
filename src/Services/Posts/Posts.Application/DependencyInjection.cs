@@ -25,6 +25,8 @@ public static class DependencyInjection
 
         services.AddSingleton(mapper);
 
+        services.AddMediatR(config => config.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly()));
+
         #endregion
     }
 }
