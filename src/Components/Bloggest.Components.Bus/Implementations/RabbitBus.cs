@@ -2,8 +2,8 @@
 using System.Reflection;
 using System.Text;
 using System.Text.Json;
-using Bloggest.Components.Bus.Interfaces;
-using Bloggest.Components.Bus.Types;
+using Bloggest.Components.Bus.Contracts.Interfaces;
+using Bloggest.Components.Bus.Contracts.Types;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Retry;

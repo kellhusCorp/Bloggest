@@ -1,6 +1,6 @@
-﻿using Bloggest.Components.Bus.Types;
+﻿using Bloggest.Components.Bus.Contracts.Types;
 
-namespace Bloggest.Components.Bus.Interfaces;
+namespace Bloggest.Components.Bus.Contracts.Interfaces;
 
 public interface IBusSubscriptionManager
 {

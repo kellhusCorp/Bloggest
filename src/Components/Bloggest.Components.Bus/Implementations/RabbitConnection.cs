@@ -1,5 +1,5 @@
 using System.Net.Sockets;
-using Bloggest.Components.Bus.Interfaces;
+using Bloggest.Components.Bus.Contracts.Interfaces;
 using Microsoft.Extensions.Logging;
 using Polly;
 using Polly.Retry;

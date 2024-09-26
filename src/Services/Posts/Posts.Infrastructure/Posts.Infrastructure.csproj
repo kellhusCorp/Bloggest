@@ -17,6 +17,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Components\Bloggest.Components.IntegrationEventContext\Bloggest.Components.IntegrationEventContext.csproj" />
       <ProjectReference Include="..\Posts.Domain\Posts.Domain.csproj" />
     </ItemGroup>
 
