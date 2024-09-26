@@ -1,6 +1,4 @@
-﻿using Bloggest.Components.Bus.Contracts.Entities;
-using Bloggest.Components.Bus.Contracts.Types;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Posts.Domain.Entities;
 
 namespace Posts.Infrastructure.Contexts;
@@ -18,8 +16,6 @@ public class PostsContext : DbContext
     
     public DbSet<TagAssignmentDbo> TagAssignments { get; set; }
     
-    public DbSet<IntegrationEventEntry> IntegrationEvents { get; set; }
-
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);

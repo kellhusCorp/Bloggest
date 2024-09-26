@@ -14,6 +14,11 @@ services:
         - postsdb
     networks:
         - bloggest-network
+    
+  rabbitmq:
+    image: rabbitmq:3-management
+    networks:
+        - bloggest-network
 networks:
   bloggest-network:
     driver: bridge
