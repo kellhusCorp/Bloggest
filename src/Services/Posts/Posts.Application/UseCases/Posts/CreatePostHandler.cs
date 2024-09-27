@@ -1,5 +1,4 @@
-﻿using Bloggest.Components.Bus.Contracts.Interfaces;
-using Ganss.Xss;
+﻿using Ganss.Xss;
 using MediatR;
 using Posts.Application.IntegrationEvents;
 using Posts.Domain.Entities;
@@ -10,12 +9,12 @@ namespace Posts.Application.UseCases.Posts;
 public class CreatePostHandler : IRequestHandler<CreatePostCommand, bool>
 {
     private readonly PostsContext _postsContext;
-    private readonly IIntegrationEventService _integrationEventService;
-
-    public CreatePostHandler(PostsContext postsContext, IIntegrationEventService integrationEventService)
+    private readonly PostsIntegrationEventService _postsIntegrationEventService;
+    
+    public CreatePostHandler(PostsContext postsContext, PostsIntegrationEventService postsIntegrationEventService)
     {
         _postsContext = postsContext;
-        _integrationEventService = integrationEventService;
+        _postsIntegrationEventService = postsIntegrationEventService;
     }
     
     public async Task<bool> Handle(CreatePostCommand command, CancellationToken cancellationToken)
@@ -44,9 +43,12 @@ public class CreatePostHandler : IRequestHandler<CreatePostCommand, bool>
             TagIds = postDbo.TagAssignments.Select(x => x.TagId)
         };
         
-        await _integrationEventService.SaveEventAsync(postCreatedEvent, transaction);
+        await _postsIntegrationEventService.AddAndSaveEventAsync(postCreatedEvent);
         
         await _postsContext.SaveChangesAsync(cancellationToken);
+        
+        await transaction.CommitAsync(cancellationToken);
+        await _postsIntegrationEventService.PublishEventsThroughEventBusAsync(transaction.TransactionId);
         
         return true;
     }

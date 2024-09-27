@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Data.Common;
 using System.Reflection;
 using Bloggest.Components.Bus.Contracts.Entities;
 using Bloggest.Components.Bus.Contracts.Enums;
@@ -17,14 +18,13 @@ public class EfIntegrationEventService : IIntegrationEventService, IDisposable
     private readonly Dictionary<string, Type> _eventTypesMapping;
     private volatile bool _disposedValue;
 
-    public EfIntegrationEventService(IDbConnection dbConnection)
+    public EfIntegrationEventService(DbConnection dbConnection, params Assembly[] mappingIntegrationEventAssemblies)
     {
         _dbConnection = dbConnection;
         _context = new EFIntegrationEventContext(new DbContextOptionsBuilder<EFIntegrationEventContext>()
-            .UseNpgsql(_dbConnection.ConnectionString).Options);
+            .UseNpgsql(dbConnection).Options);
 
-        _eventTypesMapping = Assembly.Load(Assembly.GetEntryAssembly().FullName)
-            .GetTypes()
+        _eventTypesMapping = mappingIntegrationEventAssemblies.SelectMany(x => x.GetTypes())
             .Where(x => x.IsSubclassOf(typeof(IntegrationEvent)))
             .ToDictionary(x => x.Name.Split('.').First(), x => x);
     }

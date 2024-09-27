@@ -1,3 +1,4 @@
+using System.Data;
 using System.Data.Common;
 using Bloggest.Common.Extensions;
 using Bloggest.Components.Bus.Contracts.Interfaces;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Npgsql;
 using Posts.API.Extensions;
 using Posts.Application;
+using Posts.Application.IntegrationEvents;
 using Posts.Infrastructure;
 using Posts.Infrastructure.Contexts;
 
@@ -25,9 +27,8 @@ public class Program
         builder.Services.AddSwaggerGen();
         builder.Services.AddApplicationServices();
         builder.Services.AddEventBus(builder.Configuration);
-        var defaultConnectionString = builder.Configuration.GetConnectionString("Default");
-        var npgsqlConnection = new NpgsqlConnection(defaultConnectionString);
-        builder.Services.AddTransient<IIntegrationEventService, EfIntegrationEventService>(_ => new EfIntegrationEventService(npgsqlConnection));
+        builder.Services.AddTransient<Func<DbConnection, IIntegrationEventService>>(_ => connection => new EfIntegrationEventService(connection, typeof(PostCreatedIntegrationEvent).Assembly));
+        builder.Services.AddTransient<PostsIntegrationEventService>();
 
         var app = builder.Build();
         
