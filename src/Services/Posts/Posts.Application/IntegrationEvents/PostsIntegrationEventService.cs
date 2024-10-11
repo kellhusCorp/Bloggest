@@ -1,5 +1,4 @@
-﻿using System.Data;
-using System.Data.Common;
+﻿using System.Data.Common;
 using Bloggest.Components.Bus.Contracts.Interfaces;
 using Bloggest.Components.Bus.Contracts.Types;
 using Microsoft.EntityFrameworkCore;
@@ -10,7 +9,6 @@ namespace Posts.Application.IntegrationEvents;
 
 public class PostsIntegrationEventService
 {
-    private readonly Func<DbConnection, IIntegrationEventService> _integrationEventServiceFactory;
     private readonly IEventBus _eventBus;
     private readonly PostsContext _postsContext;
     private readonly IIntegrationEventService _integrationEventService;
@@ -26,7 +24,6 @@ public class PostsIntegrationEventService
         _postsContext = postsContext;
         _integrationEventService = integrationEventServiceFactory(_postsContext.Database.GetDbConnection());
         _logger = logger;
-        _integrationEventServiceFactory = integrationEventServiceFactory;
     }
     
     public async Task PublishEventsThroughEventBusAsync(Guid transactionId)

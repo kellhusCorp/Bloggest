@@ -1,6 +1,7 @@
 ﻿using Ganss.Xss;
 using MediatR;
 using Posts.Application.IntegrationEvents;
+using Posts.Application.Services;
 using Posts.Domain.Entities;
 using Posts.Infrastructure.Contexts;
 
@@ -10,11 +11,13 @@ public class CreatePostHandler : IRequestHandler<CreatePostCommand, bool>
 {
     private readonly PostsContext _postsContext;
     private readonly PostsIntegrationEventService _postsIntegrationEventService;
-    
-    public CreatePostHandler(PostsContext postsContext, PostsIntegrationEventService postsIntegrationEventService)
+    private readonly LinkGenerator _linkGenerator;
+
+    public CreatePostHandler(PostsContext postsContext, PostsIntegrationEventService postsIntegrationEventService, LinkGenerator linkGenerator)
     {
         _postsContext = postsContext;
         _postsIntegrationEventService = postsIntegrationEventService;
+        _linkGenerator = linkGenerator;
     }
     
     public async Task<bool> Handle(CreatePostCommand command, CancellationToken cancellationToken)
@@ -27,7 +30,7 @@ public class CreatePostHandler : IRequestHandler<CreatePostCommand, bool>
             Header = command.Header,
             AuthorId = command.AuthorId,
             IsDraft = command.IsDraft,
-            Link = "how-to-generate-permalink",
+            Link = _linkGenerator.Generate(command.Header),
             TagAssignments = command.TagIds.Select(x => new TagAssignmentDbo { TagId = x }).ToList()
         };
 

@@ -11,6 +11,7 @@ using Posts.Application;
 using Posts.Application.IntegrationEvents;
 using Posts.Infrastructure;
 using Posts.Infrastructure.Contexts;
+using LinkGenerator = Posts.Application.Services.LinkGenerator;
 
 namespace Posts.API;
 
@@ -29,6 +30,7 @@ public class Program
         builder.Services.AddEventBus(builder.Configuration);
         builder.Services.AddTransient<Func<DbConnection, IIntegrationEventService>>(_ => connection => new EfIntegrationEventService(connection, typeof(PostCreatedIntegrationEvent).Assembly));
         builder.Services.AddTransient<PostsIntegrationEventService>();
+        builder.Services.AddSingleton<LinkGenerator>();
 
         var app = builder.Build();
         
