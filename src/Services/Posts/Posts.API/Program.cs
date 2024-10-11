@@ -1,11 +1,9 @@
-using System.Data;
 using System.Data.Common;
 using Bloggest.Common.Extensions;
 using Bloggest.Components.Bus.Contracts.Interfaces;
 using Bloggest.Components.IntegrationEventContext.Contexts;
 using Bloggest.Components.IntegrationEventContext.Services;
 using Microsoft.EntityFrameworkCore;
-using Npgsql;
 using Posts.API.Extensions;
 using Posts.Application;
 using Posts.Application.IntegrationEvents;
