@@ -15,7 +15,7 @@ jobs:
         with:
           dotnet-version: '8.x'
       - name: change working directory
-        run: ls -a
+        run: cd src
       - name: Install dependencies
         run: dotnet restore
       - name: Build
