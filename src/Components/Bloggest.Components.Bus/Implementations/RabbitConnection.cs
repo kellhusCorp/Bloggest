@@ -41,7 +41,7 @@ public class RabbitConnection : IRabbitConnection
                 });
     }
 
-    public bool IsConnected => _connection.IsOpen && !_disposed;
+    public bool IsConnected => _connection != null && _connection.IsOpen && !_disposed;
 
     public bool TryConnect()
     {

@@ -47,6 +47,8 @@ public static class CommonExtensions
                 return new RabbitBus(rabbitMQPersistentConnection, logger, eventBusSubscriptionsManager, sp, subscriptionClientName,
                     retryCount);
             });
+            
+            services.AddSingleton<IBusSubscriptionManager, DefaultBusSubscriptionManager>();
         }
     }
 }
